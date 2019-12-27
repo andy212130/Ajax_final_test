@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+    apiKey: "AIzaSyA02sOksBaRSSoOHNljhc9UOZ1HwOjkMHE",
+    authDomain: "ajax-450ed.firebaseapp.com",
+    databaseURL: "https://ajax-450ed.firebaseio.com",
+    projectId: "ajax-450ed",
+    storageBucket: "ajax-450ed.appspot.com",
+    messagingSenderId: "467755978195",
+ //   appId: "1:467755978195:web:f9faa0670a627c3050b326",
+//    measurementId: "G-Z6JLE0RFZV"
+
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+    <script> 
+        $(document).ready(function(){  
+            $("#SignUp").click(function(){
+                var email         = $('#email').val();
+                var password    = $('#pwd').val();
+                firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
+                  // Handle Errors here.
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  // ...
+                  alert(errorMessage)
+                }).then(function (error) { if (error.code != 400) alert("成功創建用戶認證！"); });
+                window.location.href = "./index.html"
+            });                         
+        });         
+    </script>
+
+  </head>
+  
+  <body>
+    <div>
+    <h1>大海豹註冊專區</h1>
+    </div>
+    <div>
+     <p><input type="text" id="name"      placeholder="匿名"/></p>
+     <p><input type="text" id="email"      placeholder="Email"/></p>
+     <p><input type="text" id="pwd"       placeholder="密碼"/></p>
+    </div>
+    <button id="SignUp">註冊</button><br><br>  
+
+  </body>
+</html>
