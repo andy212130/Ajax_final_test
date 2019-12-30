@@ -48,17 +48,17 @@
                 alert(errorMessage)
               }).then(function (error){if(error.code != 400)location.herf="./signinindex.html";});
           });
-          //var userLogin;
-//           firebase.auth().onAuthStateChanged(function(user) {
-//             if (user) {
-//               userLogin = user;
-//               alert("User is logined")
+          var userLogin;
+          firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              userLogin = user;
+              alert("User is logined")
 
-//             } else {
-//               userLogin = null;
-//               alert("User is not logined yet.");
-//             }
-//           });
+            } else {
+              userLogin = null;
+              alert("User is not logined yet.");
+            }
+          });
           $("#SignOut").click(function(){
               firebase.auth().signOut().then(function() {
                   console.log("User sign out!");
