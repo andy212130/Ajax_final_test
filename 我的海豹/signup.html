@@ -46,10 +46,10 @@
               const errorMessage = error.message;
               // ...
               alert(errorMessage)
-            }).then(function (error) { if (error.code != 400) 
+            }).then(function (error) { if (error.code != 400) {
               console.log(error.user.email);
-            alert("成功創建用戶認證！"); });
-            window.location.href = "./index.html"
+            alert("成功創建用戶認證！"); 
+            window.location.href = "./index.html"}});
         });                         
     });         
 </script>
